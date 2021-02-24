@@ -107,6 +107,7 @@ public class PanoramaType {
         public static final PanoramaType ICEBERG = new PanoramaType("iceberg", 8);
         public static final PanoramaType JUNGLE = new PanoramaType("jungle", 10);
         public static final PanoramaType MUSHROOM = new PanoramaType("mushroom", 3);
+        public static final PanoramaType LEGACY = new PanoramaType("legacy", 6);
 
         public static final PanoramaType DUNES = new PanoramaType("dunes", 18, "atmospheric");
         public static final PanoramaType RAINFOREST = new PanoramaType("rainforest", 15, "atmospheric");
@@ -124,7 +125,6 @@ public class PanoramaType {
         public static int m = 0;
         public static void rref() {
             m = 1;
-            System.out.println(GLOWSHROOM);
         }
 
     }
