@@ -35,13 +35,10 @@ public class PanoramaType {
         public static ArrayList<PanoramaType> ALL_PANORAMAS = Lists.newArrayList();
         public static boolean action() {
             for (PanoramaType type : ALL_PANORAMAS) {
-                System.out.println(type.modId);
                 if (type.modId==null) {
                     ACTIONABLE_PANORAMAS.add(type);
                 } else {
-                    System.out.println("mmm");
                     if (ModList.get().isLoaded(type.modId)) {
-                        System.out.println("aaa");
                         ACTIONABLE_PANORAMAS.add(type);
                     }
                 }
@@ -62,14 +59,16 @@ public class PanoramaType {
                 int index = i;
 
                 PanoramaType typeIn = ACTIONABLE_PANORAMAS.get(i);
-                bb+=typeIn.getAdjustedWeight();
-                System.out.println("!!!: "+String.valueOf(bb));
+                //bb+=typeIn.getAdjustedWeight();
+                //System.out.println("!!!: "+String.valueOf(bb));
                 if (index!=0) {
 
                     PanoramaType before = ACTIONABLE_PANORAMAS.get(index-1);
                     float beforeWeight = before.getAdjustedWeight();
                     float adjustedWeight = typeIn.getAdjustedWeight();
                     creativeI+=adjustedWeight;
+                    System.out.println("NEW ONE");
+                    System.out.println(beforeWeight);
                     System.out.println(creativeI);
                     System.out.println(weightIndex);
                     if ((beforeWeight < weightIndex) && (weightIndex <= creativeI)) {
@@ -78,6 +77,7 @@ public class PanoramaType {
 
                 } else {
                     if ((weightIndex <= typeIn.getAdjustedWeight())) {
+                        creativeI+=typeIn.getAdjustedWeight();
                         return typeIn;
                     }
                 }
